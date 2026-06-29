@@ -1,0 +1,57 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+*.manifest
+*.spec
+
+# ===== Virtual Environments =====
+venv/
+env/
+.venv/
+resume_builder/
+
+# ===== IDE / Editor =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Data Files (large) =====
+candidates.jsonl
+*.jsonl
+
+# ===== Model Cache =====
+models_cache/
+.cache/
+sentence_transformers/
+
+# ===== Output / Generated =====
+data/output/
+data/uploads/
+logs/
+*.log
+
+# ===== Streamlit =====
+.streamlit/secrets.toml
+
+# ===== Misc =====
+.env
+*.bak
+*.tmp
+scratch/
+test_parser.py

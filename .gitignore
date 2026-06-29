@@ -1,0 +1,66 @@
+# ===== Python =====
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+**/*.so
+**/*.egg
+**/*.egg-info/
+**/dist/
+**/build/
+**/eggs/
+**/*.manifest
+**/*.spec
+
+# ===== Virtual Environments =====
+**/venv/
+**/env/
+**/.venv/
+candidate-ranking-system/resume_builder/
+
+# ===== IDE / Editor =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Data Files (large) =====
+candidates.jsonl
+*.jsonl
+sample_candidates.json
+sample_submission.csv
+candidate_schema.json
+job_description.docx
+README.docx
+redrob_signals_doc.docx
+submission_spec.docx
+
+# ===== Model Cache =====
+**/models_cache/
+**/.cache/
+**/sentence_transformers/
+
+# ===== Output / Generated =====
+candidate-ranking-system/data/output/
+candidate-ranking-system/data/uploads/
+**/logs/
+**/*.log
+
+# ===== Streamlit =====
+candidate-ranking-system/.streamlit/secrets.toml
+
+# ===== Misc =====
+.env
+*.bak
+*.tmp
+scratch/
+candidate-ranking-system/test_parser.py
+
+implementation.md

@@ -1,0 +1,14 @@
+# Model Configuration
+# Adaptive Multi-Stage Candidate Intelligence Engine
+
+embedding:
+  model_name: "all-MiniLM-L6-v2"
+  max_seq_length: 256
+  batch_size: 128
+  normalize_embeddings: true
+  device: "cpu"
+
+# Similarity
+similarity:
+  metric: "cosine"
+  threshold: 0.3  # minimum similarity to consider relevant

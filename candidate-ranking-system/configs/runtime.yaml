@@ -1,0 +1,37 @@
+# Runtime Configuration
+# Adaptive Multi-Stage Candidate Intelligence Engine
+
+deployment_mode: "development"  # development | demonstration | production
+
+# Pipeline Settings
+pipeline:
+  top_k: 100
+  batch_size: 256
+  max_candidates: null  # null = process all
+  random_seed: 42
+
+# Normalization
+normalization:
+  strategy: "robust"  # standard | robust | minmax
+
+# Cache
+cache:
+  enabled: true
+  max_size_mb: 512
+  embedding_cache: true
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG | INFO | WARNING | ERROR
+  file: "data/output/logs/pipeline.log"
+  console: true
+
+# Paths
+paths:
+  data_raw: "data/raw"
+  data_cache: "data/cache"
+  data_processed: "data/processed"
+  output: "data/output"
+  submissions: "data/output/submissions"
+  reports: "data/output/reports"
+  logs: "data/output/logs"

@@ -1,0 +1,46 @@
+# Pipeline Stage Configuration
+# Adaptive Multi-Stage Candidate Intelligence Engine
+
+# Progressive Filtering
+filtering:
+  stage_1_cheap_features: 15000    # After cheap feature extraction
+  stage_2_semantic: 3000           # After semantic matching
+  stage_3_evidence: 1000           # After evidence analysis
+  stage_4_behavioral: 500          # After behavior + recruitability
+  final_top_k: 100                 # Final ranking
+
+# Feature Weights (initial — will be dynamically adjusted by HiringProfile)
+feature_groups:
+  technical_alignment: 0.25
+  semantic_relevance: 0.20
+  evidence_strength: 0.20
+  authenticity: 0.10
+  career_narrative: 0.10
+  behavioral: 0.08
+  recruitability: 0.07
+
+# Evidence Engine
+evidence:
+  min_sources_for_high_confidence: 3
+  source_weights:
+    career_history: 0.30
+    summary: 0.20
+    skills: 0.15
+    assessments: 0.20
+    certifications: 0.10
+    endorsements: 0.05
+
+# Authenticity Engine
+authenticity:
+  coherence_weight: 0.30
+  career_consistency_weight: 0.25
+  evidence_alignment_weight: 0.20
+  timeline_weight: 0.15
+  education_weight: 0.10
+
+# Narrative Engine
+narrative:
+  progression_weight: 0.35
+  specialization_weight: 0.25
+  growth_weight: 0.20
+  domain_alignment_weight: 0.20
