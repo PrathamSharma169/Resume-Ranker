@@ -53,12 +53,18 @@ def main():
     print()
 
     try:
+        # Resolve relative paths to absolute so they work regardless of CWD
+        jd_path = str(Path(args.jd).resolve()) if args.jd else None
+        candidates_path = str(Path(args.candidates).resolve()) if args.candidates else None
+        output_dir = str(Path(args.output).resolve()) if args.output else None
+        output_csv = str(Path(args.out).resolve()) if args.out else None
+
         results = pipeline.run(
-            jd_path=args.jd,
-            candidates_path=args.candidates,
-            output_dir=args.output,
+            jd_path=jd_path,
+            candidates_path=candidates_path,
+            output_dir=output_dir,
             use_embeddings=not args.no_embeddings,
-            output_csv=args.out,
+            output_csv=output_csv,
         )
 
         print(f"\n{'=' * 60}")
