@@ -43,7 +43,8 @@ def render_dashboard():
         if jd_source == "Use local file":
             jd_path_input = st.text_input(
                 "📄 JD file path (.docx)",
-                value=str(default_jd),
+                value="",
+                placeholder="e.g. C:/Users/lenovo/Documents/Resume Ranker/candidate-ranking-system/job_description.docx",
                 key="jd_path_input",
             )
         else:
@@ -64,7 +65,8 @@ def render_dashboard():
         if cand_source == "Use local file":
             candidates_path_input = st.text_input(
                 "👥 Candidates file path (.jsonl / .json)",
-                value=str(default_candidates),
+                value="",
+                placeholder="e.g. C:/Users/lenovo/Documents/Resume Ranker/candidate-ranking-system/candidates.jsonl",
                 key="cand_path_input",
             )
         else:
@@ -113,9 +115,9 @@ def render_dashboard():
     jd_exists = Path(final_jd_path).exists() if final_jd_path else False
     cand_exists = Path(final_candidates_path).exists() if final_candidates_path else False
 
-    if not jd_exists:
+    if final_jd_path and not jd_exists:
         st.warning(f"⚠️ JD file not found: `{final_jd_path}`")
-    if not cand_exists:
+    if final_candidates_path and not cand_exists:
         st.warning(f"⚠️ Candidates file not found: `{final_candidates_path}`")
 
     # Show file info
