@@ -96,7 +96,7 @@ def render_dashboard():
             with open(final_jd_path, "wb") as f:
                 f.write(jd_file.getbuffer())
         else:
-            final_jd_path = str(default_jd)
+            final_jd_path = None
 
     # Candidates
     if cand_source == "Use local file":
@@ -109,16 +109,22 @@ def render_dashboard():
             with open(final_candidates_path, "wb") as f:
                 f.write(candidates_file.getbuffer())
         else:
-            final_candidates_path = str(default_candidates)
+            final_candidates_path = None
 
     # Validate paths
     jd_exists = Path(final_jd_path).exists() if final_jd_path else False
     cand_exists = Path(final_candidates_path).exists() if final_candidates_path else False
 
-    if final_jd_path and not jd_exists:
+    # Show warning only if user typed a local path that doesn't exist
+    if jd_source == "Use local file" and final_jd_path and not jd_exists:
         st.warning(f"⚠️ JD file not found: `{final_jd_path}`")
-    if final_candidates_path and not cand_exists:
+    elif jd_source == "Upload file" and not final_jd_path:
+        st.info("ℹ️ Please upload a Job Description (.docx) file.")
+
+    if cand_source == "Use local file" and final_candidates_path and not cand_exists:
         st.warning(f"⚠️ Candidates file not found: `{final_candidates_path}`")
+    elif cand_source == "Upload file" and not final_candidates_path:
+        st.info("ℹ️ Please upload a Candidates (.jsonl / .json) file.")
 
     # Show file info
     if cand_exists:
